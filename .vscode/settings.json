@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "enemy3.h": "c"
+        "enemy3.h": "c",
+        "start.h": "c",
+        "enemy1.h": "c",
+        "enemy2.h": "c",
+        "heart.h": "c",
+        "win.h": "c"
     }
 }

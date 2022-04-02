@@ -2,6 +2,8 @@
 #define MAIN_H
 
 #include "gba.h"
+
+//images
 #include "start.h"
 #include "win.h"
 #include "enemy1.h"
