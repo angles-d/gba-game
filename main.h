@@ -60,5 +60,6 @@ int checkCollisions(struct sprite *self, struct sprite *other);
 int checkColliders(struct collider *sc, struct collider *oc);
 void resetGame(void);
 void updateBobImage(const u16 *image,int width, int height);
+void updateColliderProj(struct projectile *projectile);
 
 #endif

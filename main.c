@@ -69,6 +69,7 @@ int main(void) {
     //restart game if back is pressed
     if (KEY_JUST_PRESSED(BUTTON_SELECT, currentButtons, previousButtons)){
       state = START;
+      resetGame();
     }
     switch (state) {
       case START:
@@ -79,7 +80,6 @@ int main(void) {
         if (KEY_JUST_PRESSED(BUTTON_START, currentButtons, previousButtons)){
           waitForVBlank();
           fillScreenDMA(BLACK);
-          resetGame();
           state = PLAY;
         }
         break;
@@ -108,18 +108,22 @@ int main(void) {
 
 //resets game variables
 void resetGame(void){
-  gameState.lives = 3;
+  //reset player values
   player.x = 120;
   player.y = 80;
+  updateCollider(&player);
+  //reset bob's values
   bob.x = 160;
   bob.y = 100;
   updateBobImage(enemy1, ENEMY1_WIDTH, ENEMY1_HEIGHT);
-  
-  updateCollider(&player);
+  //reset gamestate
   gameState.win = 0;
   gameState.bobLives = 3;
   gameState.bobSpeed= 1;
-
+  gameState.lives = 3;
+  //reset projectile values
+  pt.next = 1;
+  pt.curProjectiles = 0;
   for (int i = 0; i < pt.maxProjectiles; i++){
     projectiles[i].active = 0;
   }
